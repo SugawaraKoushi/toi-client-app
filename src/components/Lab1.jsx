@@ -59,6 +59,9 @@ const Lab1 = () => {
                 case 2:
                     url = "/lab1/search/kmp";
                     break;
+                case 3:
+                    url = "/lab1/search/bm";
+                    break;    
                 default:
                     url = "/lab1/search/kmp";
                     break;
