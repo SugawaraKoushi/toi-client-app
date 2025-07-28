@@ -13,6 +13,7 @@ const Lab1 = () => {
     const [algorithm, setAlgorithm] = useState(1);
     const [loading, setLoading] = useState(false);
     const [searchStatus, setSearchStatus] = useState("");
+    const [position, setPosition] = useState();
 
     const algorithms = [
         { value: 1, label: "Прямой поиск" },
@@ -69,6 +70,7 @@ const Lab1 = () => {
             };
             const response = await axios.get(url, { params });
             if (response.data) {
+                setPosition(response.data);
                 setSearchStatus("success");
             } else {
                 setSearchStatus("error");
@@ -129,7 +131,9 @@ const Lab1 = () => {
                                 loading={loading}
                             />
                         </Form.Item>
+                        
                     </Flex>
+                    <p>Искомый текст на позиции: {position}</p>
                 </Flex>
             </Form>
         </Flex>
